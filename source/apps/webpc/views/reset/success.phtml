@@ -1,0 +1,38 @@
+<div class="wrap">
+    <div class="reg fz14">
+        <div class="account reg-pw">
+            <h1 class="tit">操作结果</h1>
+            <p class="tit-desc">
+                <span>验证手机号</span>
+                <em>></em>
+                <span>设置新密码</span>
+                <em>></em>
+                <span class="color">修改成功</span>
+            </p>
+        </div>
+        <div class="reg-box tac">
+            <div class="reg-suc-tips">
+                <p class="suc-tit">
+                    <img class="vam" src="<?php echo $this->di['sysconfig']['staticServer'];?>images/reg-suc.png" alt="修改成功"> 修改成功！</p>
+                <p>
+                    <strong id="seconds-remain">5</strong>秒</strong>后，如果没有跳转请点击<a href="/login" class="color">这里</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="<?php echo $this->di['sysconfig']['staticServer'];?>js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+<script>
+
+    seajs.config({
+        base : "<?php echo $this->di['sysconfig']['staticServer'];?>js/",
+        alias : {
+            "validator" : "utils/validator.js"
+        }
+    });
+
+    seajs.use("modules/reset/main", function(main){
+        main.successReturn();
+    });
+
+</script>

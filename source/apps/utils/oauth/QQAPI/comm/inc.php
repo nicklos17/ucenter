@@ -1,0 +1,2 @@
+<?php die('forbidden');?>
+{"appid":"101133869","appkey":"9beb3fdc51532e94f7e2d9da1be3176b","callback":"http://my.yunduo.com/oauth/qqCallBack","errorReport":true,"storageType":"file","host":"localhost","user":"root","password":"root","database":"test","scope":null}

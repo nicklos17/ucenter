@@ -1,0 +1,46 @@
+<header class="mb-my">
+    <nav>
+        <a class="goback fl" href="javascript:history.go(-1);">
+            <img src="<?php echo $this->di['sysconfig']['staticServer'];?>images/mobile/btn-back.png" alt="goback">
+        </a>
+        <p class="nav-tit">设置新密码</p>
+    </nav>
+</header>
+
+<div class="tips-suc-pop tac dn" id="flash-msg"></div>
+
+<div class="wrap mb-w auto">
+    <div class="reg-box">
+        <form action="" method="post">
+            <div class="reg-row rel">
+                <input type="password" class="input input-text" placeholder="请输入新密码" id="password">
+                <span class="tips tips-error dn" id="tips-error-passwd"></span>
+                <p class="pw-lv fr">
+                    <span class="pass-high">弱</span>
+                    <span class="pass-low">中</span>
+                    <span class="pass-low">强</span>
+                </p>
+            </div>
+            <div class="reg-row">
+                <input type="password" class="input input-text" placeholder="请重复新密码" id="re-password">
+                <span class="tips tips-error dn" id="tips-error-repwd"></span>
+            </div>
+            <div class="reg-row">
+                <input type="button" class="btn btn-grey bd-none" value="下一步" id="confirm">
+            </div>
+        </form>
+    </div>
+</div>
+<script src="<?php echo $this->di['sysconfig']['staticServer'];?>js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+<script>
+
+    seajs.config({
+        base : "<?php echo $this->di['sysconfig']['staticServer'];?>js/",
+        alias : {
+            "validator" : "utils/validator.js"
+        }
+    });
+
+    seajs.use("<?php echo $this->di['sysconfig']['staticServer'];?>js/modules/reset/main");
+
+</script>

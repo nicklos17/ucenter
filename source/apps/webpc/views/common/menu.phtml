@@ -1,0 +1,31 @@
+  
+      <div class="sub-nav">
+        <div class="w auto">
+            <a href="http://www.yunduo.com" target="_top" class="tdn">
+            <img class="vam" style="" src="<?php echo $this->di['sysconfig']['mallUrl'];?>images/mall/logo.png" alt="logo"><font style="color:#00b5e9;">.</font>
+          </a>
+          <div class="dib sub-nav-fr"><a class="cur" href="<?=$this->di['sysconfig']['siteUrl']?>" target="_top">首页</a><a href="<?php echo $this->di['sysconfig']['mallUrl'];?>" target="_top">云朵商城</a><a href="<?=$this->sysconfig['siteUrl']?>download.html" target="_top">App下载</a>
+          <div class="tac" style="display: inline-block; *display: inline; *zoom: 1;font-size: 16px; width: 110px; cursor: pointer;"><a href="<?=$this->sysconfig['siteUrl']?>explain.html" target="_top">帮助中心</a>
+
+          </div>
+          <a href="<?php echo $this->di['sysconfig']['mallUrl'];?>code" target="_top">云码通道</a>
+          <div class="dib nav-cart">
+              <a href="<?php echo $this->di['sysconfig']['mallUrl'];?>cart" target="_top" style="margin-left:0;">
+            <img class="vam" src="<?php echo $this->di['sysconfig']['mallUrl'];?>images/mall/cart-white.png" alt="我的购物车"><span id = "badge" class="badge"><?=$this->session->get('n')?:0?></span>
+            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+<script>
+        $.ajax({
+        type:'get',
+        url:"<?php echo $this->di['sysconfig']['mallUrl'];?>common/carNum?v=1",
+         dataType : 'jsonp',  
+        jsonp:"jsoncallback",  
+        success:function(ret)
+        {
+            $('#badge').html(ret.num);
+        }
+    });  
+</script>

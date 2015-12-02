@@ -1,0 +1,54 @@
+<div class="wrap">
+    <div class="reg fz14">
+        <div class="account reg-pw">
+            <h1 class="tit">设置新密码</h1>
+            <p class="tit-desc">
+                <span>验证手机号</span>
+                <em>></em>
+                <span class="color">设置新密码</span>
+                <em>></em>
+                <span>修改成功</span>
+            </p>
+        </div>
+
+        <div class="tips-suc-pop dn tac " id="flash-msg"></div>
+
+        <div class="reg-box pw-box">
+            <form action="" method="post">
+                <div class="reg-row center rel">
+                    <label class="tit">输入新密码</label>
+                    <input type="password" class="input input-text" id="password">
+                    <span class="tips tips-error dn" id="tips-error-pwd"></span>
+                    <p class="pw-lv abs">
+                        <span class="pass-high" id="pwd-weak">弱</span>
+                        <span class="pass-low" id="pwd-mid">中</span>
+                        <span class="pass-low" id="pwd-strong">强</span>
+                    </p>
+                </div>
+                <div class="reg-row center rel">
+                    <label class="tit">确认新密码</label>
+                    <input type="password" class="input input-text" id="re-password">
+                    <span class="tips-error dn" id="tips-error-repwd"></span>
+                </div>
+                <div class="reg-row">
+                    <label class="tit"></label>
+                    <input type="hidden"  name="token" value="" id="token">
+                    <input type="button" class="btn btn-grey bd-n" value="确定" id="confirm">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="<?php echo $this->di['sysconfig']['staticServer'];?>js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+<script>
+
+    seajs.config({
+        base : "<?php echo $this->di['sysconfig']['staticServer'];?>js/",
+        alias : {
+            "validator" : "utils/validator.js"
+        }
+    });
+
+    seajs.use("modules/reset/main");
+
+</script>

@@ -1,0 +1,99 @@
+<div class="wrap">
+    <div class="reg fz14">
+        <div class="account reg-other">
+            <div class="avatar fl">
+                <img src="<?php echo $pic ?: '/images/avatar.jpg';?>" alt="用户头像" id="avatar">
+            </div>
+            <div class="avatar-info fl">
+                <h2>HI <?php echo $name;?></h2>
+                <p class="tit-desc"><?php echo $pageTitle; ?></p>
+            </div>
+        </div>
+
+        <div class="tips-suc-pop tac dn" id="flash-msg"></div>
+
+        <div class="reg-box">
+            <form action="" method="post">
+                <div class="reg-row rel">
+                    <label class="tit">
+                        <em class="tips-star"></em>手机号</label>
+                    <input type="text" class="input input-text" id="mobile">
+                    <span class="tips-error dn">该号码已存在，您可以使用该手机号<a href="#" class="color">登录</a>，在云朵账户中绑定微博</span>
+                    <span class="tips tips-error dn">手机号码格式错误</span>
+                    <span class="tips tips-error" style="display: none;" id="tips-error-mobile"></span>
+                    <span class="tips tips-suc" style="display: none;" id="tips-suc-mobile"></span>
+                </div>
+                <div class="reg-row rel">
+                    <label class="tit">
+                        <em class="tips-star"></em>短信验证码</label>
+                    <input type="text" class="input input-text" id="captcha">
+                    <input type="button" class="abs btn getcode bd-n" value="获取验证码" id="btn-send-captcha">
+                    <span class="tips-error"style="display: none;" id="tips-error-captcha"></span>
+                </div>
+                <div class="reg-row rel">
+                    <label class="tit">
+                        <em class="tips-star"></em>设置密码</label>
+                    <input type="password" class="input input-text" id="password">
+                    <span class="tips tips-error" style="display: none;" id="tips-error-pwd"></span>
+                    <span class="tips tips-suc" style="display: none;" id="tips-suc-pwd"></span>
+                    <p class="pw-lv abs">
+                        <span class="pass-high" id="pwd-weak">弱</span>
+                        <span class="pass-low" id="pwd-mid">中</span>
+                        <span class="pass-low" id="pwd-strong">强</span>
+                    </p>
+                </div>
+                <div class="reg-row rel">
+                    <label class="tit">
+                        <em class="tips-star"></em>重复密码</label>
+                    <input type="password" class="input input-text" id="confirmpass">
+                    <span class="tips tips-error" style="display: none;" id="tips-error-confirmpass"></span>
+                    <span class="tips tips-suc" style="display: none;" id="tips-suc-confirmpass"></span>
+                </div>
+                <div class="reg-row">
+                    <label class="tit">常用邮箱</label>
+                    <input type="text" class="input input-text" placeholder="选填" id="email">
+                    <span class="tips tips-error" style="display: none;" id="tips-error-email"></span>
+                    <span class="tips tips-suc" style="display: none;" id="tips-suc-email"></span>
+                </div>
+                <div class="reg-row dn" id="bk-pic-captcha">
+                    <label class="tit">验证码</label>
+                    <input type="text" class="input input-text input-ver-code" id="codeImg">
+                    <img class="ver-code-img" src="/captcha/getCode" alt="图片验证码" onclick="javascript:this.src='/captcha/getCode?tm='+Math.random();">
+                    <span class="tips tips-ver-code"><a class="tdn" href="javascript:void(0)">看不清楚？换张图片</a></span>
+                    <span class="tips tips-suc dn"></span>
+                    <span class="tips-error dn" id="tips-error-pic-cap"></span>
+                </div>
+                <div class="reg-row">
+                    <label class="tit"></label>
+                    <div class="copyright">
+                        <input type="checkbox" id="agree" checked="checked">
+                        <span>我已阅读并同意遵守</span>
+                        <a href="/about/clause" class="color" target="_blank">网站使用条款</a> 和 <a href="/about/privacy" class="color" target="_blank">隐私条款</a>
+                    </div>
+                </div>
+                <div class="reg-row">
+                    <label class="tit"></label>
+                    <input type="hidden" value="<?php echo empty($openid) ? '' : $openid;?>" id="openid">
+                    <input type="hidden" value="<?php echo empty($wbuid) ? '' : $wbuid;?>" id="wbuid">
+                    <input type="hidden" value="<?php echo empty($third_type) ? '' : $third_type;?>" id="third_type">
+                    <input type="hidden" value="<?php echo empty($third_openid) ? '' : $third_openid;?>" id="third_openid">
+                    <input type="hidden" value="1" id="regtype">
+                    <input type="button" class="btn btn-blue bd-n" value="立即注册" id="reg-btn">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="<?php echo $this->di['sysconfig']['staticServer'];?>js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+<script>
+
+    seajs.config({
+        base : "<?php echo $this->di['sysconfig']['staticServer'];?>js/",
+        alias : {
+            "validator" : "utils/validator.js"
+        }
+    });
+
+    seajs.use("modules/adduserinfo/main");
+
+</script>

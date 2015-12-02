@@ -1,0 +1,190 @@
+/*! Renewed by imruxin @201505 */
+/****** common default reset *****/
+html { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+
+body, dl, dt, dd, h1, h2, h3, h4, p, form, input, ul { margin: 0; }
+
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; }
+
+audio, canvas, progress, video { display: inline-block; vertical-align: baseline; }
+
+pre, textarea { overflow: auto; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+input, td, th { padding: 0; }
+
+input, .hd-name .edit-input { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+ul, ol, li, dl, dt, dd, th, form, em, del, address, cite, i { font-style: normal; font-weight: normal; list-style: none; }
+
+ul, ol, dd { margin-left: 0; padding-left: 0; }
+
+img { border: 0 none; max-width: 100%; height: auto; }
+
+a { background: transparent; }
+
+input[type="radio"] { cursor: pointer; }
+
+button, select { text-transform: none; }
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; cursor: pointer; }
+
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; }
+
+a, a:active, a:hover { outline: 0; }
+
+.fix:before, .my-cloud-hd:before, .my-cloud-module .row:before, .fix:after, .my-cloud-hd:after, .my-cloud-module .row:after { content: "."; display: block; height: 0; visibility: hidden; clear: both; }
+
+.fix, .my-cloud-hd, .my-cloud-module .row { zoom: 1; }
+
+.clear { clear: both; }
+
+.tdn, .nav-save, .change-avatar .fix-btn a, .text-row a, footer .view-version a, .tdn:hover, .nav-save:hover, .change-avatar .fix-btn a:hover, .text-row a:hover, footer .view-version a:hover, .tdn a:hover, .nav-save a:hover, .change-avatar .fix-btn a a:hover, .text-row a a:hover, footer .view-version a a:hover { text-decoration: none; }
+
+.dib, .header a, .nav-tit, .nav-right, .index-sub-nav .link, .change-avatar .fix-btn a { display: inline-block; *display: inline; *zoom: 1; }
+
+.dn, .cnzz { display: none; }
+
+.vat { vertical-align: top; }
+
+.vam { vertical-align: middle; }
+
+.fl, .nav-menu, .nav-back { float: left; }
+
+.fr, .nav-right { float: right; }
+
+.w { width: 100%; }
+
+.mb-w { width: 94%; }
+
+.m0 { margin: 0; }
+
+.p0 { padding: 0; }
+
+.fz12 { font-size: 12px; }
+
+.fz14 { font-size: 14px; }
+
+.tal { text-align: left; }
+
+.tac, .change-avatar .fix-btn a { text-align: center; }
+
+.tar { text-align: right; }
+
+.rel, .nav-cart { position: relative; }
+
+.abs, .nav-tit, .cart-badge { position: absolute; }
+
+.ovh { overflow: hidden; }
+
+.text-hide { font: 0/0 a; color: transparent; text-shadow: none; background-color: transparent; border: 0; }
+
+.text-ell { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.auto, .change-avatar .cut-box { display: block; margin-left: auto; margin-right: auto; }
+
+.bdn { border: 0 !important; outline: 0; }
+
+body { color: #333; font: 100%/1.5 Helvetica, Tahoma, Arial, "Microsoft YaHei", \5FAE\8F6F\96C5\9ED1, SimSun, \5B8B\4F53, Heiti, \9ED1\4F53, sans-serif; }
+
+/* mobile header */
+.header { height: 44px; line-height: 44px; overflow: hidden; }
+.header.bb { border-bottom: 1px solid #dce0e2; }
+.header img { vertical-align: middle; }
+
+.nav-logo { width: 20%; max-width: 134px; margin-left: 1%; }
+
+.nav-menu, .nav-back { width: 7.18%; max-width: 46px; margin-left: 1%; }
+
+.nav-tit { text-align: center; top: 0; left: 0; width: 70%; margin-left: 15%; }
+
+.nav-right { width: 22%; max-width: 120px; }
+
+.nav-cart, .nav-login { width: 33%; max-width: 46px; text-align: center; }
+
+.nav-cart { margin-right: 15%; }
+.nav-cart.order { margin-right: 0; }
+
+.cart-badge { top: 0; margin-top: 5px; right: 0; margin-right: -10px; padding: 0 4px; font-size: 12px; color: #fff; background-color: #ff9c00; border-radius: 8px; height: 16px; line-height: 16px; }
+
+.nav-save { color: #00b4ff; }
+
+.index-sub-nav { text-align: center; padding: 2%; border-bottom: 1px solid #bcc5c9; }
+.index-sub-nav .link { width: 21.5%; max-width: 138px; }
+.index-sub-nav .link:last-child { width: 30%; }
+
+/* my cloud */
+html, body { height: 100%; }
+
+/*.change-avatar { position: relative; width: 100%; height: 100%; z-index: 10; background: url(../images/mobile/avatar-demo.jpg) no-repeat; display: none}
+.change-avatar .mask { background-color: rgba(0, 0, 0, 0.6); height: 100%; }
+.change-avatar .cut-box {position: absolute; width: 100px; height: 100px; border: 2px solid #ebebeb; border-radius: 5px; background-color: transparent; background: url(../images/mobile/avatar-demo.jpg) no-repeat; }
+.change-avatar .fix-btn { background-color: #333; text-align: center; padding: 10px 0; width: 100%; position: absolute; bottom: 0; }
+.change-avatar .fix-btn a { width: 80px; height: 26px; line-height: 26px; margin: 0 5px; border-radius: 15px; border: 1px solid #eee; font-size: 14px; color: #fff; }*/
+
+.my-cloud-hd { background: #fff url(../images/mobile/my-cloud-bg.jpg) center top no-repeat; border-bottom: 1px solid #dce0e2; background-size: 100% 100%; padding: 20px 0 30px; }
+
+.hd-avatar, .hd-main { float: left; }
+
+.hd-avatar { max-width: 128px; width: 25%; margin-right: 5%; }
+
+.hd-avatar-img { border-radius: 50px; }
+
+.hd-main { width: 70%; color: #fff; font-size: 14px; }
+
+.hd-name { margin-bottom: 5px; }
+.hd-name a { display: inline-block; max-width: 32px; width: 30%; margin-left: 5px; width: 8%; vertical-align: middle; }
+.hd-name .edit-input { border: 0; outline: 0; color: #fff; background-color: rgba(0, 0, 0, 0.2); width: 135px; height: 24px; padding-left: 10px; border-radius: 12px; }
+.hd-name .edit-close { background: url(../images/mobile/my-edit-close.png) center/cover no-repeat; width: 18px; height: 18px; position: absolute; top: 3px; left: 110px; }
+
+.hd-rank { margin-bottom: 5px; }
+.hd-rank .rank { font-size: 12px; padding: 0 5px; vertical-align: middle; }
+.hd-rank .rank-orange { background-color: #ff9c00; border: 2px solid #fff; border-radius: 12px; }
+
+.my-cloud-module { background-color: #fff; border-bottom: 20px solid #ebebeb; }
+
+.nav-row, .text-row { float: left; }
+
+.nav-row { background: url(../images/mobile/sprit-my-cloud.png) no-repeat; background-size: 100% auto; height: 24px; width: 24px; margin: 10px 10px 10px 0; }
+.nav-row.order-pay { background-position: 0 -25px; }
+.nav-row.order-service { background-position: 0 -50px; }
+.nav-row.my-device { background-position: 0 -75px; }
+.nav-row.my-coupons { background-position: 0 -100px; }
+.nav-row.my-address { background-position: 0 -125px; }
+.nav-row.my-password { background-position: 0 -150px; }
+
+.text-row { padding: 10px 0; border-bottom: 1px solid #dce0e2; width: 88%; }
+.text-row a { float: right; display: inline-block; color: #999; font-size: 16px; }
+@media screen and (min-width: 375px) { .text-row { width: 90%; } }
+@media screen and (min-width: 414px) { .text-row { width: 91%; } }
+
+.badge { display: inline-block; color: #fff; background-color: #ff9c00; padding: 0 8px; border-radius: 15px; }
+
+.arrows-right, .arrows-down, .arrows-up { display: inline-block; border-top: 1px solid #c4c4c4; border-right: 1px solid #c4c4c4; width: 10px; height: 10px; }
+
+.arrows-right { -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+
+.arrows-down { -webkit-transform: rotate(135deg); transform: rotate(135deg); }
+
+.arrows-up { -webkit-transform: rotate(-45deg); transform: rotate(-45deg); }
+
+.btn-quit { width: 100%; text-align: center; padding: 10px 0; border-bottom: 20px solid #ebebeb; }
+.btn-quit .quit { color: #ff7a7a; text-decoration: none; }
+
+/* service list */
+.service-list { background-color: #f2f2f2; text-align: center; }
+
+/* *** mobile footer **** */
+footer { width: 100%; padding: 10px 0 10px 0; border-top: 1px solid #eee; text-align: center; font-size: 14px; }
+footer address { position: relative; }
+footer .view-version a { color: #b0b0b0; }
+footer .view-version a.cur { color: #68c1f4; }
+footer .view-version em { color: #b0b0b0; }
+footer .cs-tel { font-weight: bold; padding: 5px 0; }
+footer .cs-tel .tel { color: #00b5e9; }
+footer.btm { position: absolute; bottom: 0; }
+
+#backtop { position: fixed; right: 20px; bottom: 10px; z-index: 2; }
+
+.backtop { background: url(../images/mobile/backtop.png) center/cover no-repeat; width: 36px; height: 36px; display: block; }

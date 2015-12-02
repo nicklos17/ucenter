@@ -1,0 +1,81 @@
+<header class="mb-my">
+    <nav>
+        <a class="goback fl" href="javascript:history.go(-1);">
+            <img src="<?php echo $this->di['sysconfig']['staticServer'];?>images/mobile/btn-back.png" alt="goback">
+        </a>
+        <p class="nav-tit">绑定账号</p>
+    </nav>
+</header>
+
+<div class="tips-suc-pop tac dn" id="flash-msg"></div>
+
+<div class="wrap mb-w auto">
+    <div class="avatar-info">
+        <img src="<?php echo $pic;?>" class="avatar dib" style="border-radius:50%;" id="avatar">
+        <div class="info dib">
+            <p>HI，<span class="color"><?php echo $name;?></span></p>
+            <p><?php echo $pageTitle; ?></p>
+        </div>
+    </div>
+    <div class="reg-box">
+        <h3>完善信息</h3>
+        <form action="" method="post">
+            <div class="reg-row">
+                <input type="text" class="input input-text" placeholder="请输入手机号" id="mobile">
+                <span class="tips tips-error dn" id="tips-error-mobile">该手机号码已经存在</span>
+            </div>
+            <div class="reg-row rel">
+                <input type="text" class="input input-text" placeholder="请输入验证码" id="captcha">
+                <input type="button" class="abs btn getcode bd-none" value="获取验证码" id="btn-send-captcha">
+                <span class="tips tips-error dn" id="tips-error-captcha"></span>
+            </div>
+            <div class="reg-row rel">
+                <input type="password" class="input input-text" placeholder="请输入密码" id="password">
+                <span class="tips tips-error dn" id="tips-error-passwd"></span>
+                <p class="pw-lv fr">
+                    <span class="pass-high" id="pwd-weak">弱</span>
+                    <span class="pass-low" id="pwd-mid">中</span>
+                    <span class="pass-low" id="pwd-strong">强</span>
+                </p>
+            </div>
+            <div class="reg-row">
+                <input type="password" class="input input-text" placeholder="重复密码" id="confirmpass">
+                <span class="tips tips-error dn" id="tips-error-confirmpass"></span>
+            </div>
+            <div class="reg-row">
+                <input type="text" class="input input-text" placeholder="常用邮箱选填" id="email">
+            </div>
+            <div class="reg-row dn" id="bk-pic-captcha">
+                <input type="text" class="input input-text input-ver-code" placeholder="请输入验证码" id="codeImg">
+                <img class="ver-code-img" src="/captcha/getCode" alt="图片验证码" onclick="this.src='/captcha/getCode?tm='+Math.random();" id="pic-captcha">
+                <p><span class="tips tips-error dn" id="tips-error-codeImg">验证码错误</span></p>
+            </div>
+            <div class="reg-row">
+                <div class="copyright tac">
+                    <input type="checkbox" checked="checked" class="vam" id="agree">
+                    <span>我已阅读并同意遵守</span>
+                    <a href="/about/clause" class="color tdn" target="_blank">网站使用条款</a>和<a href="/about/privacy" class="color tdn" target="_blank">隐私条款</a>
+                </div>
+            </div>
+            <div class="reg-row">
+                <input type="hidden" value="1" id="regtype">
+                <input type="hidden" value="<?php echo empty($openid) ? '' : $openid;?>" id="openid">
+                <input type="hidden" value="<?php echo empty($wbuid) ? '' : $wbuid;?>" id="wbuid">
+                <input type="button" class="btn btn-blue bd-none" value="立即进入" id="reg-btn">
+            </div>
+        </form>
+    </div>
+</div>
+<script src="<?php echo $this->di['sysconfig']['staticServer'];?>js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+<script>
+
+    seajs.config({
+        base : "<?php echo $this->di['sysconfig']['staticServer'];?>js/",
+        alias : {
+            "validator" : "utils/validator.js"
+        }
+    });
+
+    seajs.use("<?php echo $this->di['sysconfig']['staticServer'];?>js/modules/mobile/adduserinfo");
+
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="<?php echo $this->di['sysconfig']['staticServer'];?>css/my.css">
+</head>
+<body>
+
+<header>
+    <nav class="my-nav">
+        <div class="top-nav">
+
+            <?php
+                if(empty($this->session->get('uid'))){
+            ?>
+            <div class="w auto tar">
+                <a id="login" href="<?php echo $this->di['sysconfig']['domain'];?>/login<?php echo $loginParam; ?>" target="_top">登录</a>
+                <em>|</em>
+                <a href="<?php echo $this->di['sysconfig']['domain'];?>/register" target="_top">注册</a>
+            </div>
+            <?php }else { ?>
+            <div class="w auto tar">
+                欢迎您，
+                <span id="top-nick"><?php echo (empty($this->session->get('uinfo')['name']) && $this->session->get('uinfo')['name'] != '0') ? substr_replace($this->session->get('uinfo')['mobile'], '****', 4, -3) : $this->session->get('uinfo')['name'];?></span><a href="/index/logout" target="_top">[退出]</a>
+                <em>|</em>
+                <a href="<?php echo $this->di['sysconfig']['mallUrl'];?>order" target="_top">我的订单</a>
+                <em>|</em><a href="/user/index" target="_top">我的云朵账户</a>
+            </div>
+            <?php } ?>
+        </div>
+    </nav>
+</header>
+</body>
+</html>

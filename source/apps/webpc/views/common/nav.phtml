@@ -1,0 +1,13 @@
+<div class="side fl dib">
+    <h2 class="tit">云朵账户</h2>
+    <ul>
+        <li <?php if('index' == $this->dispatcher->getActionName() || 'changeAvatar' == $this->dispatcher->getActionName()):?>class="cur"<?php endif;?>><a href="/user/index" class="tdn">个人中心</a>
+        </li>
+        <li <?php if('accountbind' == $this->dispatcher->getActionName()):?>class="cur"<?php endif;?>><a href="/user/accountbind" class="tdn">账号绑定</a>
+        </li>
+        <li <?php if('passwdedit' == $this->dispatcher->getActionName()):?>class="cur"<?php endif;?>><a href="/user/passwdedit" class="tdn">修改密码</a>
+        </li>
+        <li <?php if('device' == $this->dispatcher->getActionName()):?>class="cur"<?php endif;?>><a href="/user/device" class="tdn">我的设备</a>
+        </li>
+    </ul>
+</div>

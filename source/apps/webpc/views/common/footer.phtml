@@ -1,0 +1,48 @@
+<div style="height: 284px;">
+<footer class="ft">
+    <div class="auto w footer">
+      <div class="col dib col-first">
+        <p class="fz18">关注我们</p>
+        <a href="<?=$this->di['sysconfig']['siteUrl']?>about/company.html" target="_blank">公司简介</a>
+        <a href="http://weibo.com/eYunduo" target="_blank">新浪微博</a>
+        <a href="javascript:void(0);" id="weixin" class="rel">官方微信<span id="wx-drop" class="wx-drop abs dn"><img src="<?=$this->di['sysconfig']['siteUrl']?>images/code-wx.jpg?v=2014114033"></span></a>
+        <a href="<?=$this->di['sysconfig']['siteUrl']?>about/links.html" target="_blank">友情链接</a>
+      </div>
+      <div class="col dib">
+        <p class="fz18">帮助中心</p>
+        <a href="<?=$this->di['sysconfig']['siteUrl']?>about/faq.html" target="_blank">常见问题</a>
+        <a href="<?=$this->di['sysconfig']['siteUrl']?>about/customer.html" target="_blank">客户服务</a>
+        <a href="<?=$this->di['sysconfig']['siteUrl']?>about/returns.html" target="_blank">退换货说明</a>
+      </div>
+      <div class="col dib">
+        <p class="fz18">云朵资讯</p>
+        <a href="<?=$this->di['sysconfig']['siteUrl']?>news.html" target="_blank">媒体报道</a>
+        <a href="<?=$this->di['sysconfig']['siteUrl']?>about/cooperate.html" target="_blank">媒体合作</a>
+      </div>
+      <div class="col dib col-last">
+        <strong>400-0000-400</strong>
+        <p>周一到周五 9：00-18：00</p>
+        <img style="cursor: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=4009189400&eid=218808P8z8p8p808R8R8y&o=yunduo.com&q=7&ref='+document.location, '_blank', 'height=544, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');" border="0" src="<?=$this->di['sysconfig']['siteUrl']?>images/consult-online.png?v=2014114033" title="在线咨询">
+      </div>
+    </div>
+    <address class="w auto">Copyright©2015 版权归属 云朵网络有限公司
+         <span class="cnzz">
+        <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1000458188'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1000458188' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+      </span>
+      <p>闽ICP备14002317号-1</p>
+    </address>
+  </footer>
+<script>
+        document.getElementById('weixin').onclick = function(event){
+            document.getElementById('wx-drop').className = 'wx-drop abs';
+            event.stopPropagation();
+        };
+        document.onclick = function(){
+            document.getElementById('wx-drop').className = 'wx-drop abs dn';
+        }
+</script>
+
+  </div>

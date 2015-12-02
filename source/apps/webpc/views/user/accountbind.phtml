@@ -1,0 +1,160 @@
+<div class="w auto">
+    <div class="crumbs-nav">
+        <a href="<?php echo $this->di['sysconfig']['siteUrl'];?>">首页</a>
+        <em>></em><a href="/user/index">云朵账户</a>
+        <em>></em><a href="/user/accountbind">账号绑定</a>
+    </div>
+    <div class="content ovh">
+
+        <?php $this->partial("common/nav") ?>
+
+        <div class="main fl dib">
+            <div class="info-tit rel">
+                <h2 class="tit dib">账号绑定</h2>
+                <div class="tips-suc-pop abs tac dn" id="flash-msg"></div>
+            </div>
+            <div class="accouts-bind">
+                <div class="row">
+                    <div class="col col-1">
+                        <div class="account-title account-wb">新浪微博</div>
+                    </div>
+                    <div class="col col-2">
+                        <p><?php if($userinfo['u_wb_uid']):?>已<?php else:?>未<?php endif;?>绑定新浪微博账号</p>
+                    </div>
+                    <div class="col col-3 tac rel">
+                        <?php if($userinfo['u_wb_uid']):?>
+                        <input type="button" class="btn btn-blank color bd-n" value="解绑" id="unbind-sina" data="<?php if($userinfo['u_wb_uid']) echo 0;else echo 1;?>">
+                        <?php else:?>
+                        <input type="button" class="btn btn-blue btn-link bd-n" value="立即绑定" id="bind-sina" data="<?php if($userinfo['u_wb_uid']) echo 0;else echo 1;?>">
+                        <?php endif;?>
+                        <div class="popup dn" id="sina-popup">
+                            <div class="popup-content">
+                                <div class="popup-header">
+                                    <button type="button" class="close">×</button>
+                                </div>
+                                <div class="popup-body">
+                                    确定要解绑账号吗?
+                                </div>
+                                <div class="popup-footer">
+                                    <div class="action-group">
+                                        <input type="button" class="btn btn-info bd-n" value="确定" id="unbind-confirm-sina">
+                                        <input type="button" class="btn btn-info bd-n" value="取消" id="unbind-cancel-sina">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-1">
+                        <div class="account-title account-qq">QQ账号</div>
+                    </div>
+                    <div class="col col-2">
+                        <p><?php if($userinfo['u_qq_uid']):?>已<?php else:?>未<?php endif;?>绑定QQ账号</p>
+                    </div>
+                    <div class="col col-3 tac rel">
+                        <?php if($userinfo['u_qq_uid']):?>
+                            <input type="button" class="btn btn-blank color bd-n" value="解绑" id="unbind-qq" data="<?php if($userinfo['u_qq_uid']) echo 0;else echo 1;?>">
+                        <?php else:?>
+                            <input type="button" class="btn btn-blue btn-link bd-n" value="立即绑定" id="bind-qq" data="<?php if($userinfo['u_qq_uid']) echo 0;else echo 1;?>">
+                        <?php endif;?>
+                        <div class="popup dn" id="qq-popup">
+                            <div class="popup-content">
+                                <div class="popup-header">
+                                    <button type="button" class="close">×</button>
+                                </div>
+                                <div class="popup-body">
+                                    确定要解绑账号吗?
+                                </div>
+                                <div class="popup-footer">
+                                    <div class="action-group">
+                                        <input type="button" class="btn btn-info bd-n" value="确定" id="unbind-confirm-qq">
+                                        <input type="button" class="btn btn-info bd-n" value="取消" id="unbind-cancel-qq">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-1">
+                        <div class="account-title account-wx">微信</div>
+                    </div>
+                    <div class="col col-2">
+                        <p><?php if($userinfo['u_wx_uid']):?>已<?php else:?>未<?php endif;?>绑定微信账号</p>
+                    </div>
+                    <div class="col col-3 tac rel">
+                        <?php if($userinfo['u_wx_uid']):?>
+                            <input type="button" class="btn btn-blank color bd-n" value="解绑" id="unbind-wx" data="<?php if($userinfo['u_wx_uid']) echo 0;else echo 1;?>">
+                        <?php else:?>
+                            <input type="button" class="btn btn-blue btn-link bd-n" value="立即绑定" id="bind-wx" data="<?php if($userinfo['u_wx_uid']) echo 0;else echo 1;?>">
+                        <?php endif;?>
+                        <div class="popup dn" id="wx-popup">
+                            <div class="popup-content">
+                                <div class="popup-header">
+                                    <button type="button" class="close">×</button>
+                                </div>
+                                <div class="popup-body">
+                                    确定要解绑账号吗?
+                                </div>
+                                <div class="popup-footer">
+                                    <div class="action-group">
+                                        <input type="button" class="btn btn-info bd-n" value="确定" id="unbind-confirm-wx">
+                                        <input type="button" class="btn btn-info bd-n" value="取消" id="unbind-cancel-wx">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-1">
+                        <div class="account-title account-zfb">支付宝</div>
+                    </div>
+                    <div class="col col-2">
+                        <p><?php if($userinfo['u_alipay_uid']):?>已<?php else:?>未<?php endif;?>绑定支付宝账号</p>
+                    </div>
+                    <div class="col col-3 tac rel">
+                        <?php if($userinfo['u_alipay_uid']):?>
+                            <input type="button" class="btn btn-blank color bd-n" value="解绑" id="unbind-alipay" data="<?php if($userinfo['u_alipay_uid']) echo 0;else echo 1;?>">
+                        <?php else:?>
+                            <input type="button" class="btn btn-blue btn-link bd-n" value="立即绑定" id="bind-alipay" data="<?php if($userinfo['u_alipay_uid']) echo 0;else echo 1;?>">
+                        <?php endif;?>
+                        <div class="popup dn" id="alipay-popup">
+                            <div class="popup-content">
+                                <div class="popup-header">
+                                    <button type="button" class="close">×</button>
+                                </div>
+                                <div class="popup-body">
+                                    确定要解绑账号吗?
+                                </div>
+                                <div class="popup-footer">
+                                    <div class="action-group">
+                                        <input type="button" class="btn btn-info bd-n" value="确定" id="unbind-confirm-alipay">
+                                        <input type="button" class="btn btn-info bd-n" value="取消" id="unbind-cancel-alipay">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="<?php echo $this->di['sysconfig']['staticServer'];?>js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+<script>
+
+    seajs.config({
+        base : "<?php echo $this->di['sysconfig']['staticServer'];?>js/",
+        alias : {
+            "validator" : "utils/validator.js"
+        }
+    });
+
+    seajs.use("modules/accountbind/main");
+
+</script>

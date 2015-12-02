@@ -1,0 +1,56 @@
+<div class="tips-suc-pop tac dn" id="flash-msg"></div>
+<div class="wrap">
+    <div class="main-login">
+        <div class="login auto w fix">
+            <img src="<?php echo $this->di['sysconfig']['staticServer'];?>images/login-img.jpg" class="login-img dib fl">
+            <div class="login-box dib fl fz14">
+                <h1 class="tit">欢迎登录</h1>
+
+                <form action="" method="post">
+                    <div class="login-row rel">
+                        <input type="text" class="input input-text" placeholder="请输入手机号码" id="mobile">
+                        <span class="tips tips-error dib" id="tips-error-mobile" style="display: none;">账号或密码错误</span>
+                    </div>
+                    <div class="login-row rel">
+                        <input type="password" class="input input-text" placeholder="请输入密码" id="passwd">
+                        <span class="tips tips-error dib dn" id="tips-error-passwd">密码错误</span>
+                    </div>
+                    <div class="login-safe fz12">
+                        <input type="checkbox" class="vam" id="auto-login">
+                        <span>两周内自动登录</span>
+                        <a href="/reset" class="fr color tdn">忘记密码？</a>
+                    </div>
+                    <input type="hidden" name="backurl" value="<?php echo !empty($backurl) ? $backurl : ''; ?>">
+                    <input type="hidden" name="siteId" value="<?php echo !empty($siteId) ? $siteId : ''; ?>">
+                    <input type="hidden" name="auth" value="<?php echo !empty($auth) ? $auth : ''; ?>">
+                    <input type="button" class="btn btn-blue bd-n" value="立即登录" id="login-btn">
+                </form>
+
+                <p class="reg-row">还没有云朵账号？<a href="/register" class="color">立即注册</a>
+                </p>
+                <p class="goback">返回<a href="<?php echo $this->di['sysconfig']['siteUrl']; ?>" class="color">云朵首页</a>
+                </p>
+                <div class="login-else">
+                    <p class="tit">其他登录方式</p>
+                    <a href="/index/wboauth" class="login-wb" title="新浪微博登录"><img src="images/login-wb.png" alt="新浪微博登录"></a>
+                    <a href="/index/qqoauth" class="login-qq" title="QQ登录"><img src="images/login-qq.png" alt="QQ登录"></a>
+                    <a href="/index/alipay" class="login-zfb" title="支付宝登录"><img src="images/login-zfb.png" alt="支付宝登录"></a>
+                    <a href="/index/weixin" class="login-wx" title="微信登录"><img src="images/login-wx.png" alt="微信登录"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="<?php echo $this->di['sysconfig']['staticServer'];?>js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+<script>
+
+    seajs.config({
+        base : "<?php echo $this->di['sysconfig']['staticServer'];?>js/",
+        alias : {
+            "validator" : "utils/validator.js"
+        }
+    });
+
+    seajs.use("modules/login/main");
+
+</script>

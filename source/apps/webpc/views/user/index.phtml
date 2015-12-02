@@ -1,0 +1,135 @@
+<div class="w auto">
+    <div class="crumbs-nav"><a href="<?php echo $this->di['sysconfig']['siteUrl'];?>">首页</a>
+        <em>></em><a href="/user/index">云朵账户</a>
+        <em>></em><a href="/user/index">个人中心</a>
+    </div>
+    <div class="content ovh">
+
+        <?php $this->partial("common/nav") ?>
+
+        <div class="main fl dib">
+            <div class="info-tit rel">
+                <h2 class="tit dib">个人中心</h2>
+                <div class="tips-suc-pop abs tac dn" id="flash-msg"></div>
+            </div>
+            <div class="myinfo">
+                <div class="avatar dib">
+                    <img src="<?php if(!$userinfo['u_pic']):echo $this->di['sysconfig']['staticServer'].'images/avatar.jpg'?><?php else:echo $userinfo['u_pic'];?><?php endif;?>" alt="我的头像" style="border-radius:50%;">
+                    <!--<p><a href="javascript:void(0);" class="color" id="avatar">修改头像</a>-->
+                    <p><a href="/user/changeAvatar" class="color">修改头像</a>
+                    </p>
+                </div>
+                <div class="info-list dib">
+                    <div class="info-row">
+                        <div class="name">昵称：</div>
+                        <input type="hidden" name="oldname" value="<?php echo (empty($userinfo['u_name']) && $userinfo['u_name'] != '0') ? $userinfo['u_name'] : '';?>" id="old-name"/>
+                        <p class="dib" id="nick-block">
+                            <?php if(empty($userinfo['u_name']) && $userinfo['u_name'] != '0'):?>
+                                <span id="bk-no-nick">
+                                    <span class="unset" id="nick-no-set">未设置</span><a href="javascript:void(0);" class="color tdn" id="btn-set-nick">设置</a>
+                                </span>
+                            <?php endif;?>
+                            <span id="bk-update-nick" class="<?php if(empty($userinfo['u_name']) && $userinfo['u_name'] != '0') echo 'dn';?>">
+                                <span id="show-nick" style="margin-right: 10px;"><?php echo (empty($userinfo['u_name']) && $userinfo['u_name'] != '0') ? '':$userinfo['u_name'];?></span><a href="javascript:void(0);" class="color" id="btn-update-nick">修改</a>
+                            </span>
+                        </p>
+                        <span class="dib dn" id="bk-set-nick">
+                                <input type="text" class="input-name" id="nickname">
+                                <a href="javascript:void(0);" class="color" id="confirm-set">确定</a>
+                                <a href="javascript:void(0);" class="quit" id="cancel-set">取消</a>
+                                <span class="tips-error dn" id="tips-error-name"></span>
+                        </span>
+
+                    </div>
+                    <div class="info-row">
+                        <div class="name">等级：</div>
+                        <p class="dib unset"><?php echo $userinfo['u_level'];?> 级</p>
+              <span id="ydrank" class="tips-faq rel">
+                <em class="mytips ydrank abs dn">注册成为云朵会员的用户，都会自动加入云朵账号等级系统！系统会对账号的App签到行为做统计。总的签到天数越高，用户的等级也越高，拥有的特权也会更多！</em>
+              </span>
+                    </div>
+                    <div class="info-row">
+                        <div class="name">云币：</div>
+                        <p class="dib unset"><?php echo $userinfo['uw_coins'];?> 个</p>
+              <span id="yunbi" class="tips-faq rel">
+                <em class="mytips yunbi abs dn">云币目前只能通过App签到获取。签到1天赠送5个云币，连续签到2天赠送10个云币，连续签到3天赠送15个云币，连续签到4天赠送20个云币，连续签到5天赠送25个云币，连续签到 6天及以上赠送30个云币。</em>
+              </span>
+                    </div>
+                    <div class="info-row">
+                        <div class="name">手机号：</div>
+                        <p class="dib"><?php echo substr_replace($userinfo['u_mobi'], '****', 4, -3)?></p>
+                    </div>
+                    <div class="info-row">
+                        <div class="name">邮箱：</div>
+                        <input type="hidden" value="<?php echo $userinfo['u_email'] ? $userinfo['u_email'] : '';?>" id="email-hid">
+                        <p class="dib" id="email-block">
+                            <span class="bk-show-email">
+                            <?php if($userinfo['u_email']):?>
+                                <span id="cur-email"><?php echo $userinfo['u_email'];?></span>
+                                <?php if($userinfo['u_email_verify']==3):?>
+                                    <em class="tips-ok unset">已验证</em>
+                                    <a href="/email/index" class="color" id="update_email">更改</a>
+                                <?php else:?>
+                                    <em class="tips-un unset">未验证</em>
+                                    <a href="javascript:void(0);" class="color" id="update-email">更改</a>
+                                    <em class="v-line">|</em>
+                                    <em>没收到邮件？<a href="javascript:void(0);" class="color tdn" id="resend-email">重新发送验证邮件</a>
+                                    </em>
+                                <?php endif;?>
+                                </span>
+                            <?php else:?>
+                                <span id="bk-no-email" class="bk-show-email">
+                                    <span class="unset">未设置</span><a href="javascript:void(0);" class="color" id="set-email">设置</a>
+                                </span>
+                            <?php endif;?>
+                        </p>
+                        <span class="dib dn" id="bk-set-email">
+                                <input type="text" class="input-name" id="email">
+                                <a href="javascript:void(0);" class="color" id="confirm-set-email">确定</a>
+                                <a href="javascript:void(0);" class="quit" id="cancel-set-email">取消</a>
+                                <span class="tips-error dn" id="tips-error-email"></span>
+                        </span>
+                        <span class="tips-error dn">邮箱格式错误</span>
+                    </div>
+                    <div class="info-row">
+                        <div class="name">账号绑定：</div>
+                        <span class="dib bindwb-un <?php if($userinfo['u_wb_uid']):?>bindwb<?php endif;?>"></span>
+                        <span class="dib bindqq-un <?php if($userinfo['u_qq_uid']):?>bindqq<?php endif;?>"></span>
+                        <span class="dib bindwx-un <?php if($userinfo['u_wx_uid']):?>bindwx<?php endif;?>"></span>
+                        <span class="dib bindzfb-un <?php if($userinfo['u_alipay_uid']):?>bindzfb<?php endif;?>"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="service">
+                <div class="info-tit">
+                    <h2 class="tit dib">可用服务</h2>
+                </div>
+                <div class="service-list">
+                    <div class="service-link">
+                        <a href="<?=$this->di['sysconfig']['siteUrl']?>" class="yunduo">
+                            <img src="<?php echo $this->di['sysconfig']['staticServer'];?>images/logo-blue.png" alt="云朵官网">
+                        </a>
+                        <p>云朵官网</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="<?php echo $this->di['sysconfig']['staticServer'];?>js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+<script>
+
+    seajs.config({
+        base : "<?php echo $this->di['sysconfig']['staticServer'];?>js/",
+        alias : {
+            "validator" : "utils/validator.js",
+            "ajaxfileupload" : "spm_modules/jquery-plugin/ajaxfileupload.js"
+        }
+    });
+
+    seajs.use(["modules/userindex/main"], function(main){
+   })
+
+</script>
+<iframe width="100%" scrolling="no" frameborder="0" height="0" src="<?php echo $this->di['sysconfig']['mallUrl']; ?>/common/bridge"></iframe>

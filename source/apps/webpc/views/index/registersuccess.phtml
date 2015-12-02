@@ -1,0 +1,32 @@
+<div class="wrap">
+    <div class="reg fz14">
+        <div class="account">
+            <h1 class="tit">创建一个云朵账号</h1>
+            <p class="tit-desc">云朵账户能让您更方便的享受各项云朵服务。如果您已拥有云朵账户，请
+                <a href="/login" class="color">点此登录</a>
+            </p>
+        </div>
+        <div class="reg-box tac">
+            <div class="reg-suc-tips">
+                <p class="suc-tit">
+                    <img class="vam" src="<?php echo $this->di['sysconfig']['staticServer'];?>images/reg-suc.png" alt="成功"> 您已成功注册云朵账户！</p>
+                <p>
+                    <strong id="seconds-remain">5</strong><strong>秒</strong>后，我们将为您跳转到<a href="/user/index" class="color">个人中心</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="<?php echo $this->di['sysconfig']['staticServer'];?>js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+<script>
+
+    seajs.config({
+        base : "<?php echo $this->di['sysconfig']['staticServer'];?>js/",
+        alias : {
+            "validator" : "utils/validator.js"
+        }
+    });
+
+    seajs.use("modules/register/success");
+
+</script>

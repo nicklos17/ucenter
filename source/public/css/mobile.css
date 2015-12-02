@@ -1,0 +1,215 @@
+/*! Renewed by doers @201410*/
+/****** common default *****/
+body, dl, dt, dd, h1, h2, h3, p, form, input, ul { margin: 0; }
+
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
+
+pre, textarea { overflow: auto; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+input, td, th { padding: 0; }
+
+input { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+ul, ol, li, dl, dt, dd, form, em, del, address, cite, i { font-style: normal; list-style: none; }
+
+ul, ol, dd { margin-left: 0; padding-left: 0; }
+
+img { border: 0; max-width: 100%; height: auto; }
+
+a { background: transparent; color: #333; }
+
+input[type="radio"] { cursor: pointer; }
+
+input[type="submit"], input[type="reset"], input[type="button"], button { -webkit-appearance: none; }
+
+a:active, a:hover { outline: 0; }
+
+.fix:before, .fix:after { content: "."; display: block; height: 0; visibility: hidden; clear: both; }
+
+.fix { zoom: 1; }
+
+.clear { clear: both; }
+
+.tdn, .mb-my a, footer .view-version a, .tdn:hover, .mb-my a:hover, footer .view-version a:hover, .tdn a:hover, .mb-my a a:hover, footer .view-version a a:hover, a.tdl:hover { text-decoration: none; }
+
+.db { display: block; }
+
+.dib { display: inline-block; *display: inline; *zoom: 1; }
+
+.d-tb { display: table; }
+
+.d-tbr { display: table-row; }
+
+.d-tbc { display: table-cell; }
+
+.dn, .cnzz { display: none; }
+
+.vam { vertical-align: middle; }
+
+.fl { float: left; }
+
+.fr { float: right; }
+
+.w { width: 100%; }
+
+.m0 { margin: 0; }
+
+.p0 { padding: 0; }
+
+.fz12 { font-size: 12px; }
+
+.fz14 { font-size: 14px; }
+
+.fz16 { font-size: 16px; }
+
+.fz18 { font-size: 18px; }
+
+.fz20 { font-size: 20px; }
+
+.tal { text-align: left; }
+
+.tac { text-align: center; }
+
+.tar { text-align: right; }
+
+.rel { position: relative; }
+
+.abs { position: absolute; }
+
+.ovh { overflow: hidden; }
+
+.bold { font-weight: bold; }
+
+.texthide { margin-left: -999em; }
+
+.auto { margin-left: auto; margin-right: auto; }
+
+.bd-none { border: 0 !important; outline: 0; }
+
+body { font: 100%/1.5 verdana, 'Microsoft YaHei', 'Helvetica Neue', Helvetica, sans-serif; }
+
+.wrap { color: #333; width: 100%; min-height: 350px; }
+
+.mb-w { width: 94%; }
+
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+
+.clearfix { display: inline-block; }
+
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+
+.clearfix { display: block; }
+
+/* close commented backslash hack */
+/* ** mobile header ** */
+.mb-my { font-size: 120%; background: #00a9f0; height: 50px; line-height: 50px; color: #fff; position: relative; }
+.mb-my .goback { color: #fff; margin-left: 10px; }
+.mb-my .goback img { width: 10px; }
+.mb-my .nav-tit { position: absolute;}
+.mb-my .nav-login { color: #fff; font-size: 80%; margin-right: 10px; position: relative;}
+.mb-my .nav-login img { width: 22px; vertical-align: middle; }
+
+/*** common input ***/
+.input { font-size: 14px; padding: 5px; border-radius: 3px; font-family: 'Microsoft YaHei'; border: 1px solid #dadada; outline: 0; }
+.input.input-text { height: 34px; width: 100%; }
+.input.input-error { -webkit-border: 1px solid #d95453; -moz-border: 1px solid #d95453; -ms-border: 1px solid #d95453; border: 1px solid #d95453; -webkit-box-shadow: 0 0 6px 0 #d95453; box-shadow: 0 0 6px 0 #d95453; }
+.input.input-ver-code { width: 65%; }
+
+/* common tips */
+.tips { border-radius: 2px; font-size: 12px; border: 0; }
+
+.login-row .tips-error { background: url(../images/login-error.png) #f8dcdc 5px center no-repeat; position: absolute; color: #d95453; height: 28px; line-height: 28px; top: 3px; right: 3px; padding: 0 6px 0 25px; }
+
+.reg-row .tips-text { color: #6f6f6f; margin-left: 5px; }
+.reg-row .tips-suc, .reg-row .tips-error { padding: 2px 20px; color: #d95453; margin-left: 5px; }
+.reg-row .tips-suc { background: url(../images/tips-suc.png) no-repeat; }
+.reg-row .tips-error { background: url(../images/tips-error.png) no-repeat 0 center; }
+
+/* password rank */
+.pass-high, .pass-low { color: #fff; padding: 0 10px; margin: 0 2px; font-weight: 300; font-size: 12px; border-radius: 2px; }
+
+.pass-low { background: #c1c1c1; }
+
+.pass-high { background: #ff8a00; }
+
+/* ** common btn ** */
+.btn { border-radius: 3px; font-family: 'Microsoft YaHei'; height: 34px; line-height: 34px; font-size: 16px; cursor: pointer; text-align: center; text-decoration: none; }
+.btn.btn-blank { background: none; }
+.btn.btn-grey { background: #d4d4d4; color: #fff; }
+.btn.btn-blue { background: #00b5e9; color: #fff; }
+.btn.btn-pink { background: #ff7b8a; color: #fff; }
+.btn.getcode { color: #60a3bd; background: #d1eaf4; padding: 0 10px; top: 3px; right: 3px; height: 28px; line-height: 28px; font-size: 12px; }
+.btn.getcode:hover { color: #438ca9; background: #b7dae8; }
+.btn.disabled { color: #c5c5c5; background: #eaeaea; }
+
+.login-box .btn-blue { width: 100%; }
+
+/* register */
+.reg-box .reg-row .btn-blue { width: 100%; }
+.reg-box .reg-row .btn-grey { width: 100%; }
+
+/* my yunduo quit */
+.my-yunduo .btn.btn-pink { width: 100%; }
+
+/* ********* login ******** */
+.reg-box { margin-top: 15px; }
+.reg-box .reg-row { margin: 10px 0; }
+.reg-box .reg-row .copyright { font-size: 13px; color: #999; margin: 20px 0; }
+.reg-box .reg-row .color { color: #00a9f0; }
+.reg-box .ver-code-img { height: 34px; width: 33%; vertical-align: top; }
+
+/* other login */
+.login-other { font-size: 85%; margin-top: 50px; }
+.login-other .login-wb, .login-other .login-qq { background: url(../images/mobile/wbqq.png) no-repeat; width: 32px; height: 32px; vertical-align: middle; }
+.login-other .login-qq { background-position: 0 -35px; margin-left: 10px; }
+.login-other .color { color: #00a9f0; }
+.login-other p { height: 35px; line-height: 35px; }
+.login-zfb { background: url(../images/login-ways.jpg) no-repeat; width: 32px; height: 32px; vertical-align: middle; background-position: -85px 0; margin-left: 10px;} 
+
+/* register success */
+.register-success { margin-top: 50px; line-height: 30px; }
+.register-success .tit img { width: 30px; height: 30px; margin-right: 5px; }
+.register-success .desc { margin-top: 50px; color: #b0b0b0; }
+.register-success .color { color: #00a9f0; }
+
+/* account bind */
+.avatar-info { padding: 20px 0; -webkit-border-bottom: 1px solid #d6e0e6; -moz-border-bottom: 1px solid #d6e0e6; -ms-border-bottom: 1px solid #d6e0e6; border-bottom: 1px solid #d6e0e6; }
+.avatar-info .avatar { width: 28%; margin-right: 5%; vertical-align: top; }
+.avatar-info .info { width: 61%; }
+.avatar-info .color { color: #00a9f0; }
+
+/* my yunduo */
+.my-yunduo .info { line-height: 1.8; }
+.my-yunduo .lv-yellow, .my-yunduo .lv-green, .my-yunduo .lv-red, .my-yunduo .lv-purple { color: #fff; font-size: 75%; border-radius: 10px; padding: 0 5px; height: 18px; line-height: 18px; }
+.my-yunduo .lv-yellow { background: #ffc700; }
+.my-yunduo .lv-green { background: #6dd274; }
+.my-yunduo .lv-red { background: #ff7b8a; }
+.my-yunduo .lv-purple { background: #8f96eb; }
+.my-yunduo .yunbi-img { width: 12%; margin-right: 2%; }
+.my-yunduo .info-list { margin-top: 5%; }
+.my-yunduo .info-list p { text-align: center; font-size: 90%; }
+.my-yunduo .info-list .dib { width: 23%; text-align: center; margin-bottom: 8%; }
+.my-yunduo .info-list .dib img { width: 85%; }
+
+/* *** mobile footer **** */
+footer { background: #f9f9f9; width: 100%; padding: 10px 0 10px 0; border-top: 2px solid #ccc; margin-top: 50px; text-align: center; }
+footer address { position: relative; font-size: 12px; }
+footer .view-version a { color: #858687; }
+footer .view-version a.cur { color: #68c1f4; }
+
+#backtop { position: fixed; right: 20px; bottom: 20px; }
+
+.backtop { background: url(../images/backtop.png) no-repeat; width: 36px; height: 36px; display: block; }
+
+.tips-suc-pop {
+    background: none repeat scroll 0 0 #fbeebe;
+    border-bottom: 1px solid #ffd37f;
+    color: #ff8400;
+    height: 32px;
+    line-height: 32px;
+    margin-top: 1px;
+    width: 100%;
+}

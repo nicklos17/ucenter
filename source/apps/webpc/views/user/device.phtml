@@ -1,0 +1,69 @@
+<div class="w auto">
+    <!-- 公共面包屑开始 -->
+    <div class="crumbs-nav"><a href="#">首页</a>
+        <em>></em><a href="#">云朵账户</a>
+        <em>></em><a href="#">我的设备</a>
+    </div>
+    <!-- 公共面包屑结束 -->
+    <!-- 主体部分开始 -->
+    <div class="content ovh">
+        <!-- 侧边栏导航开始 -->
+        <?php $this->partial("common/nav") ?>
+        <!-- 侧边栏导航结束 -->
+        <!-- 正文部分开始 -->
+        <div class="main fl dib">
+            <div class="info-tit rel">
+                <h2 class="tit dib">我的设备</h2>
+            </div>
+            <div class="myinfo my-device">
+                <?php $i = 0; foreach($devices as $device):?>
+                    <div class="device-box">
+                        <div class="device-info">
+                            <p>设备ID号：</p>
+                            <h3><?=$device['imei']?></h3>
+                            <p>服务期限：</p>
+                            <h3>至 <?=date('Y-m-d', $device['expires'])?></h3>
+                            <p>设备二维码：</p>
+                            <p class="qr-code" style="position: relative;margin: 5px 0 10px;" data-qr="<?=$device['qr_code']?>">
+
+                            </p>
+                        </div>
+                        <div class="avatar-info">
+                            <img src="<?=$this->di['sysconfig']['staticServer']?>images/device-avatar.png" alt="avatar">
+                            <span>亲爱的朵朵</span>
+                        </div>
+                    </div>
+                    <canvas id="Canvas_<?=$i?>"></canvas>
+                <?php $i++; endforeach;?>
+
+            </div>
+        </div>
+        <!-- 正文部分结束 -->
+    </div>
+    <!-- 主体部分结束 -->
+</div>
+
+<script src="<?php echo $this->di['sysconfig']['staticServer'];?>js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+<script>
+
+    seajs.config({
+        base : "<?php echo $this->di['sysconfig']['staticServer'];?>js/"
+    });
+
+    seajs.use(["spm_modules/jquery-plugin/qrcode", "spm_modules/jquery-plugin/jquery.qrcode"], function(){
+
+        $('.device-box').each(function(k){
+            $(this).find('.qr-code').qrcode(
+                {
+                    idx:k,
+                    width: 135,
+                    height: 135,
+                    text: $(this).find('.qr-code').data('qr'),
+                    src: "<?=$this->di['sysconfig']['staticServer']?>images/device-avatar.png"
+                }
+            )
+        })
+
+    });
+
+</script>

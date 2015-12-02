@@ -1,0 +1,136 @@
+<div class="w auto">
+    <!-- 公共面包屑开始 -->
+    <div class="crumbs-nav"><a href="<?=$this->sysconfig['siteUrl']?>">首页</a>
+        <em>></em><a href="/user/index">云朵账户</a>
+        <em>></em><a href="/user/index">个人中心</a>
+        <em>></em><a href="/user/changeAvatar">修改头像</a>
+    </div>
+    <!-- 公共面包屑结束 -->
+    <!-- 主体部分开始 -->
+    <div class="content ovh">
+        <!-- 侧边栏导航开始 -->
+        <?php $this->partial("common/nav") ?>
+        <!-- 侧边栏导航结束 -->
+        <!-- 正文部分开始 -->
+        <div class="main fl dib">
+            <div class="info-tit rel">
+                <h2 class="tit dib">修改头像</h2>
+                <div class="tips-suc-pop abs tac dn" id="flash-msg"></div>
+            </div>
+            <div class="myinfo change-avatar">
+                <div class="upload-avatar"><a href="javascript:void(0)" id="avatar" class="upload-img"><img class="vam" src="<?=$this->sysconfig['staticServer']?>images/upload-avatar.jpg" alt="上传头像"></a><span>仅支持jpeg，jpg，gif格式，图片小于2M</span>
+                <input type="file" style="position: absolute; width: 10px; filter: alpha(opacity=0);opacity: 0; top: 0px;" class="input" name="upfile" size="20" id="upfile">
+                </div> 
+                <div class="avatar-box">
+                    <div class="normal-avatar">
+                      <div><!-- style="background-color:rgba(0,0,0,0.1);" -->
+                        <img style="max-width:auto; width:auto;height:auto" class="normal-avatar-img" id="normal-avatar-img" src="<?=$this->sysconfig['staticServer']?>images/normal-avatar-empty.jpg" alt="avatar"> <!-- 默认图片是normal-avatar-default.jpg -->
+                      </div>
+                    <div> <!-- 没有传图片时默认不出现，添加类.dn -->
+<!--                      <p><a href="#" class="fz12"><img class="vam" src="<?=$this->sysconfig['staticServer']?>images/to-left.jpg" alt="逆时针旋转"> 逆时针旋转</a>
+                            <a href="#" class="fr fz12"><img class="vam" src="<?=$this->sysconfig['staticServer']?>images/to-right.jpg" alt="顺时针旋转"> 顺时针旋转</a></p> -->
+                        <div class="avatar-btn" id="avatar-sub" style="display:none; margin-top:100px">
+                            <form id="avatar-form" action="/user/cropPhoto" method="post">
+                                <input type="hidden" id="nor-w" value=""/>
+                                <input type="hidden" id="nor-h" value=""/>
+                                <input type="hidden" name="x1" value="0" id="x1" />
+                                <input type="hidden" name="y1" value="0" id="y1" />
+                                <input type="hidden" name="x2" value="100" id="x2" />
+                                <input type="hidden" name="y2" value="100" id="y2" />
+                                <input type="hidden" name="w" value="100" id="w" />
+                                <input type="hidden" name="h" value="100" id="h" />
+                                <a href="javascript:void(0)" class="btn tdn btn-blue btn-save" id="save-thumb">保存</a>
+                                <a href="/user/index" class="btn tdn btn-quit">取消</a>
+                            </form>
+                         </div>
+                        </div>
+                    </div>
+                        <div id ="crop" style="vertical-align:top; display:inline-block; position:relative; overflow:hidden; width:100px; height:100px;border-radius:50%"><!-- class="small-avatar" -->
+                            <img style="position: relative; max-width:none;" src="<?=$this->sysconfig['staticServer']?>images/avatar.jpg" alt="avatar"> <!-- 默认图片是avatar.jpg -->
+<!--                             <p>头像尺寸：100x100像素</p> -->
+                        </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- 正文部分结束 -->
+    </div>
+    <!-- 主体部分结束 -->
+</div>
+<script type="text/javascript">$j = $;delete $;delete JQuery;</script>
+<script src="<?=$this->di['sysconfig']['staticServer'];?>js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+<script src="<?=$this->di['sysconfig']['staticServer'];?>js/spm_modules/jquery-plugin/jquery-pack.js"></script>
+<script src="<?=$this->di['sysconfig']['staticServer'];?>js/spm_modules/jquery-plugin/jquery.imgareaselect.min.js"></script>
+<script>
+    seajs.config({
+        base : "<?php echo $this->di['sysconfig']['staticServer'];?>js/",
+        alias : {
+            "ajaxfileupload" : "spm_modules/jquery-plugin/ajaxfileupload.js"
+        }
+    });
+    $j('#avatar').on('click', function(){
+        $j('#upfile').click();
+    });
+    seajs.use(["ajaxfileupload", "modules/userindex/changeAvatar"], function(fileupload, main){
+
+        $j('body').on('change', '#upfile', function(){
+            var areaLen = 100;
+            $('#flash-msg').show().html('正在上传中');
+            $.ajaxFileUpload({
+                url: '/user/uploadPhoto',
+                secureuri: false,
+                fileElementId: 'upfile',
+                dataType: 'json',
+                success: function(msg){
+                    if(msg.ret == 1){
+                        $j('#crop > img').css({width:"auto", height:"auto", margin:0});
+                        $j('#normal-avatar-img').attr('src', msg.msg);
+                        $j('#crop > img').attr('src', msg.msg);
+                        $j('#flash-msg').hide();
+                        $('#nor-w').val(msg.w);
+                        $('#nor-h').val(msg.h);
+                        $('#normal-avatar-img').css({width:msg.w, height:msg.h});
+                        //设置宽高
+                        $('#avatar-sub').show();
+                        if(msg.w < 100 || msg.h < 100){
+                            if(msg.w < msg.h)
+                                areaLen = msg.w;
+                            else
+                                areaLen =msg.h;
+                        }
+                        $('#normal-avatar-img').imgAreaSelect({aspectRatio: '1:1', borderWidth: 1, selectionColor: 'red', x1:0, y1:0, x2: areaLen,
+                        y2:areaLen, show:true, selectionOpacity: 0.2 , onSelectEnd: preview, onSelectChange: preview});
+                    }
+                    else{
+                        $j('#flash-msg').show().html(msg.msg);
+                    }
+                },
+                error: function (xhr, status, err) {
+                    //alert(err.message);
+                }
+            });
+        });
+
+        function preview(img, selection){
+            var scaleX = 100 / selection.width, scaleY = 100 / selection.height;
+             var img = new Image();
+            img.src = document.getElementById('normal-avatar-img').src;
+            $('#crop > img').css({
+                width: Math.round(scaleX * img.width) + 'px', 
+                height: Math.round(scaleY * img.height) + 'px',
+                marginLeft: '-' + Math.round(scaleX * selection.x1) + 'px',
+                marginTop: '-' + Math.round(scaleY * selection.y1) + 'px'
+            });
+            $('#x1').val(selection.x1);
+            $('#y1').val(selection.y1);
+            $('#x2').val(selection.x2);
+            $('#y2').val(selection.y2);
+            $('#w').val(selection.width);
+            $('#h').val(selection.height);
+        }
+
+        $j('#save-thumb').on('click', function(){
+            $j('#avatar-form').submit();
+        })
+    })
+</script>
